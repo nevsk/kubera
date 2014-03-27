@@ -2,6 +2,8 @@
 
 import stock
 
-stock = stock.Stock("sh600000")
-stock.getCurPrice()
-print "%.2f %.2f%%" %(stock.curPrice, stock.priceChange)
+stocks = stock.StockPool()
+stocks.append("sh600000")
+stocks.append("sh600008")
+stocks.getCurPrice()
+stocks.dump()
