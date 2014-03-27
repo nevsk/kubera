@@ -3,19 +3,19 @@
 import sys
 from datetime import *
 import time
-import dow
+import kbrdow
 
 def crunch_data(movements, data, index):
 	for line in data[index:]:
 		# remove \r\n at the end of line
 		line = line[:-2]
 		items = line.split(',')
-		candlestick = dow.Candlestick(date(int(items[0][:4]), int(items[0][4:6]), int(items[0][6:])), float(items[1]), float(items[2]), float(items[3]), float(items[4]))
+		candlestick = kbrdow.Candlestick(date(int(items[0][:4]), int(items[0][4:6]), int(items[0][6:])), float(items[1]), float(items[2]), float(items[3]), float(items[4]))
 		if not movements.process(candlestick):
 			break
 	return movements.count()
 
-movements = dow.Movements()
+movements = kbrdow.Movements()
 
 # remove extra lines
 sys.stdin.readline()
