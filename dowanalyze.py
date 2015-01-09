@@ -13,7 +13,7 @@ def crunch_data(movements, data, index):
 		candlestick = kbrdow.Candlestick(date(int(items[0][:4]), int(items[0][4:6]), int(items[0][6:])), float(items[1]), float(items[2]), float(items[3]), float(items[4]))
 		if not movements.process(candlestick):
 			break
-	return movements.count()
+	return movements.period()
 
 movements = kbrdow.Movements()
 
